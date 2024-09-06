@@ -1,3 +1,4 @@
+using Library;
 using Library.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +32,20 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Books}/{action=Index}/{id?}");
+    pattern: "{controller=Users}/{action=Index}/{id?}");
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try {
+        SeedData.Initialize(services);
+    }
+    catch(Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError("Greska prilikom inicijalizacije podataka");
+    }
+}
 
 app.Run();

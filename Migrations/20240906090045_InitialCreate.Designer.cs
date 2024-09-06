@@ -4,6 +4,7 @@ using Library.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20240906090045_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,6 +145,12 @@ namespace Library.Migrations
                     b.Property<DateTime>("Updated_at")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("UserGenderId")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("UserTypeId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("User_gender_id")
                         .HasColumnType("bigint");
 
@@ -152,14 +161,11 @@ namespace Library.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("user_gender_id")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("User_type_id");
+                    b.HasIndex("UserGenderId");
 
-                    b.HasIndex("user_gender_id");
+                    b.HasIndex("UserTypeId");
 
                     b.ToTable("Users");
                 });
@@ -209,21 +215,13 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.User", b =>
                 {
-                    b.HasOne("Library.Models.UserType", "UserType")
+                    b.HasOne("Library.Models.UserGender", null)
                         .WithMany("Users")
-                        .HasForeignKey("User_type_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserGenderId");
 
-                    b.HasOne("Library.Models.UserGender", "UserGender")
+                    b.HasOne("Library.Models.UserType", null)
                         .WithMany("Users")
-                        .HasForeignKey("user_gender_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserGender");
-
-                    b.Navigation("UserType");
+                        .HasForeignKey("UserTypeId");
                 });
 
             modelBuilder.Entity("Library.Models.Format", b =>

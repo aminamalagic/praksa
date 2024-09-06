@@ -46,7 +46,7 @@ namespace Library.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            ViewData["UserTypeId"] = new SelectList(_context.UsersTypes, "Id", "Name");
+            ViewData["UserTypeId"] = new SelectList(_context.UsersTypes.ToList(), "Id", "Name");
             ViewData["UserGenderId"] = new SelectList(_context.UsersGenders, "Id", "Name");
             return View();
         }
