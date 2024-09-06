@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Library.Models.User>
+@{
+}
+
+<h2>Bibliotekari</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ime i prezime</th>
+            <th>Email</th>
+            <th>Tip korisnika</th>
+            <th>zadnji pristup sistemu</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.UserType.Name</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

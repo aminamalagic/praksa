@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Library.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User_type_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_gender_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JMBG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_verified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remember_token)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_login_at)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login_count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created_at)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Updated_at)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_type_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_gender_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JMBG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email_verified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remember_token)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_login_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login_count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Updated_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
