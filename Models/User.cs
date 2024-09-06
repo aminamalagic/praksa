@@ -9,7 +9,8 @@ namespace Library.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name="Ime i prezime")]
+        [Display(Name = "Ime i prezime")]
+        [RegularExpression(@"^[a-zA-Z]+\s[a-zA-Z]+$", ErrorMessage = "Unesite puno ime i prezime.")]
         public string Name { get; set; }
 
         [Display(Name= "Tip korisnika")]

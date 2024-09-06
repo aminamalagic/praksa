@@ -46,8 +46,14 @@ namespace Library.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            ViewData["UserTypeId"] = new SelectList(_context.UsersTypes.ToList(), "Id", "Name");
-            ViewData["UserGenderId"] = new SelectList(_context.UsersGenders, "Id", "Name");
+            var userTypes = _context.UsersTypes.ToList();
+            userTypes.Insert(0, new UserType { Id = 0, Name = "" }); // Dodaj praznu opciju
+
+            var userGenders = _context.UsersGenders.ToList();
+            userGenders.Insert(0, new UserGender { Id = 0, Name = "" }); // Dodaj praznu opciju
+
+            ViewData["UserTypeId"] = new SelectList(userTypes, "Id", "Name");
+            ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name");
             return View();
         }
 
@@ -56,7 +62,7 @@ namespace Library.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,User_type_id,User_gender_id,JMBG,Email,Username,Password,Photo,Email_verified,Remember_token,Last_login_at,Login_count,Created_at,Updated_at,Active")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Name,User_type_id,User_gender_id,JMBG,Email,Username,Password,Photo,Email_verified,Remember_token,Last_login_at,Login_count,Created_at,Updated_at,Active")] User user)
         {
             if (ModelState.IsValid)
             {

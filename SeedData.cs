@@ -18,8 +18,8 @@ namespace Library
                 );
 
                 context.UsersGenders.AddRange(
-                    new UserGender { Name = "Zensko"},
-                    new UserGender { Name = "Musko"}
+                    new UserGender { Name = "Zenski"},
+                    new UserGender { Name = "Muski"}
                 );
 
                 context.SaveChanges();
