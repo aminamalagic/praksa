@@ -32,7 +32,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Users}/{action=Index}/{id?}");
+    pattern: "{controller=Bibliotekari}/{action=Index}/{id?}");
 
 
 using (var scope = app.Services.CreateScope())

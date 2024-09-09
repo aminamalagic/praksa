@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240904095319_IntitialCreate")]
-    partial class IntitialCreate
+    [Migration("20240909160821_DatabaseUpdateRemoval")]
+    partial class DatabaseUpdateRemoval
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,61 +107,31 @@ namespace Library.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Email_verified")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("JMBG")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Last_login_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Login_count")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Password")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Photo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remember_token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("UserGenderId")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("UserTypeId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("User_gender_id")
+                    b.Property<long?>("User_gender_id")
                         .HasColumnType("bigint");
 
                     b.Property<long>("User_type_id")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("user_gender_id")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserGenderId");
+                    b.HasIndex("User_type_id");
 
-                    b.HasIndex("UserTypeId");
+                    b.HasIndex("user_gender_id");
 
                     b.ToTable("Users");
                 });
@@ -211,13 +181,21 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.User", b =>
                 {
-                    b.HasOne("Library.Models.UserGender", null)
+                    b.HasOne("Library.Models.UserType", "UserType")
                         .WithMany("Users")
-                        .HasForeignKey("UserGenderId");
+                        .HasForeignKey("User_type_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Library.Models.UserType", null)
+                    b.HasOne("Library.Models.UserGender", "UserGender")
                         .WithMany("Users")
-                        .HasForeignKey("UserTypeId");
+                        .HasForeignKey("user_gender_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserGender");
+
+                    b.Navigation("UserType");
                 });
 
             modelBuilder.Entity("Library.Models.Format", b =>

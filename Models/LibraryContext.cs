@@ -11,6 +11,7 @@ namespace Library.Models
         public DbSet<UserGender> UsersGenders { get; set; }
         public DbSet<UserType> UsersTypes { get; set; }
         public DbSet<Format> Formats { get; set; }
+        public DbSet<Bibliotekar> Bibliotekari { get; set; }
 
     }
 }

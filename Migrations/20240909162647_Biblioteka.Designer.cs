@@ -4,6 +4,7 @@ using Library.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20240909162647_Bibliotekar")]
+    partial class Bibliotekar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +32,9 @@ namespace Library.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -199,7 +205,7 @@ namespace Library.Migrations
             modelBuilder.Entity("Library.Models.Bibliotekar", b =>
                 {
                     b.HasOne("Library.Models.UserType", "UserType")
-                        .WithMany("Bibliotekari")
+                        .WithMany()
                         .HasForeignKey("User_type_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -247,8 +253,6 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.UserType", b =>
                 {
-                    b.Navigation("Bibliotekari");
-
                     b.Navigation("Users");
                 });
 #pragma warning restore 612, 618

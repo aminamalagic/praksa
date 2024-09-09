@@ -1,0 +1,36 @@
+﻿@model List<Bibliotekar>
+@{
+}
+
+<h2>Bibliotekari</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ime i prezime</th>
+            <th>Email</th>
+            <th>Tip korisnika</th>
+            <th>Zadnji pristup sistemu</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var bibliotekar in Model)
+        {
+            <tr>
+                <td>@bibliotekar.Name</td>
+                <td>@bibliotekar.Email</td>
+                <td>@bibliotekar.UserType.Name</td>
+                <td>@bibliotekar.Last_login_at.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@bibliotekar.Id">Izmeni</a> |
+                    <a asp-action="Details" asp-route-id="@bibliotekar.Id">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@bibliotekar.Id">Izbrisi</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Dodaj bibliotekara</a>

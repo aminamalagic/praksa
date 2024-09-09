@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240906101132_InitialCreatee")]
-    partial class InitialCreatee
+    [Migration("20240909180940_M2")]
+    partial class M2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,35 @@ namespace Library.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Library.Models.Bibliotekar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Last_login_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("User_type_id")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("User_type_id");
+
+                    b.ToTable("Bibliotekari");
+                });
 
             modelBuilder.Entity("Library.Models.Book", b =>
                 {
@@ -107,53 +136,22 @@ namespace Library.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Email_verified")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("JMBG")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Last_login_at")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Login_count")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Photo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Remember_token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("User_gender_id")
+                    b.Property<long?>("User_gender_id")
                         .HasColumnType("bigint");
 
                     b.Property<long>("User_type_id")
                         .HasColumnType("bigint");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("user_gender_id")
                         .HasColumnType("int");
@@ -201,6 +199,17 @@ namespace Library.Migrations
                     b.ToTable("UsersTypes");
                 });
 
+            modelBuilder.Entity("Library.Models.Bibliotekar", b =>
+                {
+                    b.HasOne("Library.Models.UserType", "UserType")
+                        .WithMany("Bibliotekari")
+                        .HasForeignKey("User_type_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserType");
+                });
+
             modelBuilder.Entity("Library.Models.Book", b =>
                 {
                     b.HasOne("Library.Models.Format", null)
@@ -241,6 +250,8 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.UserType", b =>
                 {
+                    b.Navigation("Bibliotekari");
+
                     b.Navigation("Users");
                 });
 #pragma warning restore 612, 618

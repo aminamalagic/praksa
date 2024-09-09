@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+@* DESKTOP-A78ALDS *@
 @*
+
 <h1>Index</h1>
 
 <p>
@@ -128,10 +131,12 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.Username</td>
+                <td>@user.Name</td>
                 <td>@user.Email</td>
-                <td>@user.UserType.Name</td>
-                <td>@user.UserGender.Name</td>
+               @* <td>@user.UserType.Name</td>
+                <td>@user.UserGender.Name</td>*@
+                <td>@user.UserType.Name</td> <!-- Ako koristiš navigation property -->
+                <td>@user.Last_login_at</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@user.Id">Izmeni</a> |
                     <a asp-action="Details" asp-route-id="@user.Id">Detalji</a> |

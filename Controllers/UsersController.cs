@@ -21,8 +21,8 @@ namespace Library.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            var user = _context.Users.Include(u => u.User_type_id).Include(u => u.User_gender_id);
-            return View(await _context.Users.ToListAsync());
+           var user = _context.Users.Include(u => u.User_type_id).Include(u => u.User_gender_id);
+           return View(await _context.Users.ToListAsync());
         }
 
         // GET: Users/Details/5
@@ -62,17 +62,56 @@ namespace Library.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,User_type_id,User_gender_id,JMBG,Email,Username,Password,Photo,Email_verified,Remember_token,Last_login_at,Login_count,Created_at,Updated_at,Active")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Name,User_type_id,User_gender_id,Email,Last_login_at,Active")] User user)
         {
-            if (ModelState.IsValid)
+            // Ako validacija nije uspela onda prikazujemo greske i vracamo formu
+            if (!ModelState.IsValid)
             {
-                user.Last_login_at = DateTime.Now;
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error);
+                }
+
+                var userTypes = _context.UsersTypes.ToList();
+                var userGenders = _context.UsersGenders.ToList();
+                ViewData["UserTypeId"] = new SelectList(userTypes, "Id", "Name", user.User_type_id);
+                ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name", user.User_gender_id);
+
+                return View(user);
+            }
+
+
+            user.Last_login_at = DateTime.Now;
+            _context.Add(user);
+
+            try
+            {
+                var result = await _context.SaveChangesAsync();
+                if (result > 0)
+                {
+                    Console.WriteLine("Podaci uspešno ažurirani.");
+                }
+                else
+                {
+                    Console.WriteLine("Nema promena u bazi.");
+                }
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            catch (Exception ex)
+            {
+                Console.WriteLine("Greška prilikom čuvanja podataka: " + ex.Message);
+
+                var userTypes = _context.UsersTypes.ToList();
+                var userGenders = _context.UsersGenders.ToList();
+                ViewData["UserTypeId"] = new SelectList(userTypes, "Id", "Name", user.User_type_id);
+                ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name", user.User_gender_id);
+
+                return View(user);
+            }
         }
+
 
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -98,7 +137,7 @@ namespace Library.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,User_type_id,User_gender_id,JMBG,Email,Username,Password,Photo,Email_verified,Remember_token,Last_login_at,Login_count,Created_at,Updated_at,Active")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, Name, User_type_id,User_gender_id,Email,Last_login_at,Active")] User user)
         {
             if (id != user.Id)
             {

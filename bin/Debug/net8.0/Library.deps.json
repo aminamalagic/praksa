@@ -37,6 +37,7 @@
       "Library/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.8",
+          "Microsoft.AspNetCore.Razor.Runtime": "2.2.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
@@ -72,7 +73,7 @@
           "Microsoft.AspNetCore.Hosting.Abstractions": "8.0.0.0",
           "Microsoft.AspNetCore.Hosting": "8.0.0.0",
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "8.0.0.0",
-          "Microsoft.AspNetCore.Html.Abstractions": "8.0.0.0",
+          "Microsoft.AspNetCore.Html.Abstractions.Reference": "8.0.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "8.0.0.0",
           "Microsoft.AspNetCore.Http.Connections.Common": "8.0.0.0",
           "Microsoft.AspNetCore.Http.Connections": "8.0.0.0",
@@ -102,8 +103,8 @@
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "8.0.0.0",
           "Microsoft.AspNetCore.OutputCaching": "8.0.0.0",
           "Microsoft.AspNetCore.RateLimiting": "8.0.0.0",
-          "Microsoft.AspNetCore.Razor": "8.0.0.0",
-          "Microsoft.AspNetCore.Razor.Runtime": "8.0.0.0",
+          "Microsoft.AspNetCore.Razor.Reference": "8.0.0.0",
+          "Microsoft.AspNetCore.Razor.Runtime.Reference": "8.0.0.0",
           "Microsoft.AspNetCore.RequestDecompression": "8.0.0.0",
           "Microsoft.AspNetCore.ResponseCaching.Abstractions": "8.0.0.0",
           "Microsoft.AspNetCore.ResponseCaching": "8.0.0.0",
@@ -933,6 +934,11 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "8.0.0"
+        }
+      },
       "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Razor.Language": "6.0.24",
@@ -964,6 +970,11 @@
           "lib/net8.0/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Razor/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0"
+        }
+      },
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
@@ -973,6 +984,12 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Razor.Runtime/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Razor": "2.2.0"
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
@@ -2624,7 +2641,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Html.Abstractions/8.0.0.0": {
+      "Microsoft.AspNetCore.Html.Abstractions.Reference/8.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Html.Abstractions.dll": {}
         },
@@ -2804,13 +2821,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Razor/8.0.0.0": {
+      "Microsoft.AspNetCore.Razor.Reference/8.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Razor.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Razor.Runtime/8.0.0.0": {
+      "Microsoft.AspNetCore.Razor.Runtime.Reference/8.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Razor.Runtime.dll": {}
         },
@@ -4616,6 +4633,13 @@
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
+      "path": "microsoft.aspnetcore.html.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -4630,12 +4654,26 @@
       "path": "microsoft.aspnetcore.mvc.razor.runtimecompilation/8.0.8",
       "hashPath": "microsoft.aspnetcore.mvc.razor.runtimecompilation.8.0.8.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Razor/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V54PIyDCFl8COnTp9gezNHpUNHk7F9UnerGeZy3UfbnwYvfzbo+ipqQmSgeoESH8e0JvKhRTyQyZquW2EPtCmg==",
+      "path": "microsoft.aspnetcore.razor/2.2.0",
+      "hashPath": "microsoft.aspnetcore.razor.2.2.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-kBL6ljTREp/3fk8EKN27mrPy3WTqWUjiqCkKFlCKHUKRO3/9rAasKizX3vPWy4ZTcNsIPmVWUHwjDFmiW4MyNA==",
       "path": "microsoft.aspnetcore.razor.language/6.0.24",
       "hashPath": "microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Razor.Runtime/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7YqK+H61lN6yj9RiQUko7oaOhKtRR9Q/kBcoWNRemhJdTIWOh1OmdvJKzZrMWOlff3BAjejkPQm+0V0qXk+B1w==",
+      "path": "microsoft.aspnetcore.razor.runtime/2.2.0",
+      "hashPath": "microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
       "type": "package",
@@ -5534,7 +5572,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Html.Abstractions/8.0.0.0": {
+    "Microsoft.AspNetCore.Html.Abstractions.Reference/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -5684,12 +5722,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Razor/8.0.0.0": {
+    "Microsoft.AspNetCore.Razor.Reference/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Razor.Runtime/8.0.0.0": {
+    "Microsoft.AspNetCore.Razor.Runtime.Reference/8.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

@@ -23,18 +23,32 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.User_gender_id)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Last_login_at)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Last_login_at)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+        @*
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.JMBG)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.JMBG)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Username)
         </dt>
@@ -65,12 +79,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Remember_token)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Last_login_at)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Last_login_at)
-        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Login_count)
         </dt>
@@ -88,13 +97,8 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Updated_at)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Active)
-        </dd>
+        </dd>*@
+
     </dl>
     
     <form asp-action="Delete">
