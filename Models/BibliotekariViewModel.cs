@@ -15,11 +15,27 @@ namespace Library.Models
         [Display(Name = "Tip korisnika")]
         public long User_type_id { get; set; }
         [ForeignKey("User_type_id")]
-        public UserType UserType { get; set; }
 
+        [Required]
+        [Display(Name = "JMBG")]
+        public string JMBG { get; set; }
 
         [Required, EmailAddress]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Korisničko ime")]
+        public string Username { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage = "Lozinka mora imati najmanje 8 karaktera.")]
+        public string Password { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Lozinke se ne poklapaju.")]
+        public string ConfirmPassword { get; set; }
 
     }
 }

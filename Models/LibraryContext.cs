@@ -13,5 +13,16 @@ namespace Library.Models
         public DbSet<Format> Formats { get; set; }
         public DbSet<Bibliotekar> Bibliotekari { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Bibliotekar>()
+                .HasOne(b => b.UserType)
+                .WithMany(u => u.Bibliotekari)
+                .HasForeignKey(b => b.User_type_id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

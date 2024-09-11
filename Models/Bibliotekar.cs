@@ -11,6 +11,13 @@ namespace Library.Models
         [ForeignKey("User_type_id")]
         public UserType UserType { get; set; }
         public string Email { get; set; }
+        [Required]
+        public string JMBG { get; set; }
+        [Required]
+        public string Username { get; set; }
+
+
+        public string Password { get; set; }
         public DateTime Last_login_at { get; set; }
     }
 }

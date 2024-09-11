@@ -13,8 +13,8 @@ namespace Library
                 if (context.UsersTypes.Any() || context.UsersGenders.Any()) return;
 
                 context.UsersTypes.AddRange(
-                    new UserType { Name = "Admin" },
-                    new UserType { Name = "Bibliotekar" }
+                new UserType { Id = 1, Name = "Bibliotekar" },
+                new UserType { Id = 2, Name = "Učenik" }
                 );
 
                 context.UsersGenders.AddRange(
@@ -23,6 +23,7 @@ namespace Library
                 );
 
                 context.SaveChanges();
+                Console.WriteLine("Data has been seeded");
             }
         }
     }
