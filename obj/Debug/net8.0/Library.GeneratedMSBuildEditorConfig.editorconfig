@@ -17,115 +17,151 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Library
 build_property.RootNamespace = Library
-build_property.ProjectDir = C:\Users\Korisnik\source\repos\aminamalagic\praksa\
+build_property.ProjectDir = C:\Users\Korisnik\Source\Repos\aminamalagic\praksa\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Korisnik\source\repos\aminamalagic\praksa
+build_property.MSBuildProjectDirectory = C:\Users\Korisnik\Source\Repos\aminamalagic\praksa
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Bibliotekari/Create.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Bibliotekari/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlibGlvdGVrYXJpXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Bibliotekari/Delete.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Bibliotekari/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlibGlvdGVrYXJpXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Bibliotekari/Edit.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Bibliotekari/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlibGlvdGVrYXJpXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Bibliotekari/Index.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Bibliotekari/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlibGlvdGVrYXJpXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books1/Create.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books1/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3MxXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books1/Delete.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books1/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3MxXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books1/Details.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books1/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3MxXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books1/Edit.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books1/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3MxXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books1/Index.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books1/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3MxXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books/Create.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books/Delete.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books/Details.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books/Edit.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Books/Index.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Books/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Home/Index.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Home/Privacy.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Shared/Error.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Users/Create.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Users/Delete.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Users/Details.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Users/Edit.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Users/Index.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/_ViewImports.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/_ViewStart.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Korisnik/source/repos/aminamalagic/praksa/Views/Shared/_Layout.cshtml]
+[C:/Users/Korisnik/Source/Repos/aminamalagic/praksa/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-m09otnxxkw
