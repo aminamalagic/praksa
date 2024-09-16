@@ -1,0 +1,38 @@
+﻿@model Library.Models.BibliotekariDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalji o bibliotekaru</h2>
+
+<div>
+    <label>Ime i prezime:</label>
+    <p>@Model.Name</p>
+</div>
+<div>
+    <label>Tip korisnika:</label>
+    <p>@Model.UserType</p>
+</div>
+<div>
+    <label>JMBG:</label>
+    <p>@Model.JMBG</p>
+</div>
+<div>
+    <label>Email:</label>
+    <p>@Model.Email</p>
+</div>
+<div>
+    <label>Korisničko ime:</label>
+    <p>@Model.Username</p>
+</div>
+@*<div>
+    <label>Broj logovanja:</label>
+    <p>@Model.BrojLogovanja</p>
+</div>*@
+<div>
+    <label>Poslednji put logovan/a:</label>
+    <p>@Model.Last_Login_at.ToString("dd.MM.yyyy HH:mm")</p>
+</div>
+
+<a asp-action="Index" class="btn btn-primary">Nazad na listu</a>

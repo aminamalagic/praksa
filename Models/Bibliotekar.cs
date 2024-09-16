@@ -15,8 +15,6 @@ namespace Library.Models
         public string JMBG { get; set; }
         [Required]
         public string Username { get; set; }
-
-
         public string Password { get; set; }
         public DateTime Last_login_at { get; set; }
     }

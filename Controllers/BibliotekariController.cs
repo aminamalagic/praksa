@@ -100,7 +100,6 @@ namespace Library.Controllers
         public IActionResult Edit(int id)
         {
             var bibliotekar = _context.Bibliotekari.Find(id);
-
             if(bibliotekar == null)
             {
                 return NotFound();
@@ -219,6 +218,31 @@ namespace Library.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Details(int id)
+        {
+
+            var bibliotekar = _context.Bibliotekari.Include(b =>b.UserType).FirstOrDefault(b => b.Id == id);
+             
+                var viewModel = new BibliotekariDetailsViewModel()
+                {
+                    Name = bibliotekar.Name,
+                    UserType = bibliotekar.UserType.Name,
+                    JMBG = bibliotekar.JMBG,
+                    Email = bibliotekar.Email,
+                    Username = bibliotekar.Username,
+                    //BrojLogovanja = b.BrojLogovanja,
+                    Last_Login_at = bibliotekar.Last_login_at
+                };
+
+            if (bibliotekar == null)
+            {
+                return NotFound();
+            }
+
+            return View(viewModel);
+        }
+
 
     }
 }
