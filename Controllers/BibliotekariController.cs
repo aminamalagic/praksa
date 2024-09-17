@@ -79,6 +79,7 @@ namespace Library.Controllers
                 JMBG = bibliotekariViewModel.JMBG,
                 Username = bibliotekariViewModel.Username,
                 Password = hasher.HashPassword(null, bibliotekariViewModel.Password),
+                ConfirmPassword = hasher.HashPassword(null, bibliotekariViewModel.ConfirmPassword),
                 Last_login_at = DateTime.Now,
             };
 
@@ -216,7 +217,7 @@ namespace Library.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
         public IActionResult Details(int id)

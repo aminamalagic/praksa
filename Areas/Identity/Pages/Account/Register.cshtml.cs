@@ -28,7 +28,7 @@ namespace Library.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly IUserStore<User> _userStore;
         private readonly IUserEmailStore<User> _emailStore;
-        private readonly ILogger<RegisterModel> _logger;
+        private readonly ILogger<User> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
@@ -42,7 +42,7 @@ namespace Library.Areas.Identity.Pages.Account
             _userStore = userStore;
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
-            _logger = logger;
+            _logger = (ILogger<User>)logger;
             _emailSender = emailSender;
         }
 

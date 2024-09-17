@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Library.Models;
 
 namespace Library.Models
 {
@@ -25,6 +26,7 @@ namespace Library.Models
 
             base.OnModelCreating(modelBuilder);
         }
+        public DbSet<Library.Models.SignUpUserModel> SignUpUserModel { get; set; } = default!;
 
     }
 }

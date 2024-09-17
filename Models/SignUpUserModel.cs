@@ -4,6 +4,8 @@ namespace Library.Models
 {
     public class SignUpUserModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Unesite Email adresu")]
         [EmailAddress]
         [Display(Name = "Email adresa")]
