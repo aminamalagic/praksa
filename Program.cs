@@ -14,7 +14,7 @@ builder.Services.AddDbContext<LibraryContext>(options =>
 });
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<User>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
@@ -46,6 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -65,5 +66,5 @@ using (var scope = app.Services.CreateScope())
         logger.LogError("Greska prilikom inicijalizacije podataka");
     }
 }
-
+app.MapRazorPages();
 app.Run();

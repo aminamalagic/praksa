@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Models
 {
-    public class LibraryContext : IdentityDbContext<IdentityUser>
+    public class LibraryContext : IdentityDbContext<User>
     {
 
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options) { }
