@@ -14,7 +14,7 @@ builder.Services.AddDbContext<LibraryContext>(options =>
 });
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<User>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;

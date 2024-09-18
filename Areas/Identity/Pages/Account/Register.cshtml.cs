@@ -35,14 +35,14 @@ namespace Library.Areas.Identity.Pages.Account
             UserManager<User> userManager,
             IUserStore<User> userStore,
             SignInManager<User> signInManager,
-            ILogger<RegisterModel> logger,
+            ILogger<User> logger,
             IEmailSender emailSender)
         {
             _userManager = userManager;
             _userStore = userStore;
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
-            _logger = (ILogger<User>)logger;
+            _logger = logger;
             _emailSender = emailSender;
         }
 

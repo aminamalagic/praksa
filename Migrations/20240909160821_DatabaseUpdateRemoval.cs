@@ -47,19 +47,19 @@ namespace Library.Migrations
                 name: "Username",
                 table: "Users");
 
-            migrationBuilder.AlterColumn<long>(
+           /* migrationBuilder.AlterColumn<long>(
                 name: "User_gender_id",
                 table: "Users",
                 type: "bigint",
                 nullable: true,
                 oldClrType: typeof(long),
-                oldType: "bigint");
+                oldType: "bigint");*/
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<long>(
+            /*migrationBuilder.AlterColumn<long>(
                 name: "User_gender_id",
                 table: "Users",
                 type: "bigint",
@@ -67,7 +67,7 @@ namespace Library.Migrations
                 defaultValue: 0L,
                 oldClrType: typeof(long),
                 oldType: "bigint",
-                oldNullable: true);
+                oldNullable: true);*/
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "Created_at",
