@@ -21,7 +21,7 @@ namespace Library.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-           var user = _context.Users.Include(u => u.User_type_id).Include(u => u.User_gender_id);
+            var user = _context.Users.Include(u => u.User_type_id);
            return View(await _context.Users.ToListAsync());
         }
 
@@ -49,11 +49,11 @@ namespace Library.Controllers
             var userTypes = _context.UsersTypes.ToList();
             userTypes.Insert(0, new UserType { Id = 0, Name = "" }); // Dodaj praznu opciju
 
-            var userGenders = _context.UsersGenders.ToList();
-            userGenders.Insert(0, new UserGender { Id = 0, Name = "" }); // Dodaj praznu opciju
+            /*var userGenders = _context.UsersGenders.ToList();
+            userGenders.Insert(0, new UserGender { Id = 0, Name = "" }); // Dodaj praznu opciju*/
 
             ViewData["UserTypeId"] = new SelectList(userTypes, "Id", "Name");
-            ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name");
+            //ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name");
             return View();
         }
 
@@ -74,9 +74,9 @@ namespace Library.Controllers
                 }
 
                 var userTypes = _context.UsersTypes.ToList();
-                var userGenders = _context.UsersGenders.ToList();
+                //var userGenders = _context.UsersGenders.ToList();
                 ViewData["UserTypeId"] = new SelectList(userTypes, "Id", "Name", user.User_type_id);
-                ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name", user.User_gender_id);
+                //ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name", user.User_gender_id);
 
                 return View(user);
             }
@@ -104,9 +104,9 @@ namespace Library.Controllers
                 Console.WriteLine("Greška prilikom čuvanja podataka: " + ex.Message);
 
                 var userTypes = _context.UsersTypes.ToList();
-                var userGenders = _context.UsersGenders.ToList();
+                //var userGenders = _context.UsersGenders.ToList();
                 ViewData["UserTypeId"] = new SelectList(userTypes, "Id", "Name", user.User_type_id);
-                ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name", user.User_gender_id);
+                //ViewData["UserGenderId"] = new SelectList(userGenders, "Id", "Name", user.User_gender_id);
 
                 return View(user);
             }
@@ -128,7 +128,7 @@ namespace Library.Controllers
             }
 
             ViewData["UserTypeId"] = new SelectList(_context.UsersTypes, "Id", "Name", user.User_type_id);
-            ViewData["UserGenderId"] = new SelectList(_context.UsersGenders, "Id", "Name", user.User_gender_id);
+            //ViewData["UserGenderId"] = new SelectList(_context.UsersGenders, "Id", "Name", user.User_gender_id);
             return View(user);
         }
 
