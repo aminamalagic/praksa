@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20240918063547_loginn")]
-    partial class loginn
+    [Migration("20240925144549_AddNewBookRelatedTablesLongFormat")]
+    partial class AddNewBookRelatedTablesLongFormat
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,23 @@ namespace Library.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Library.Models.Author", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Author");
+                });
+
             modelBuilder.Entity("Library.Models.Bibliotekar", b =>
                 {
                     b.Property<int>("Id")
@@ -32,6 +49,10 @@ namespace Library.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -66,6 +87,23 @@ namespace Library.Migrations
                     b.ToTable("Bibliotekari");
                 });
 
+            modelBuilder.Entity("Library.Models.Binding", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Binding");
+                });
+
             modelBuilder.Entity("Library.Models.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -74,50 +112,86 @@ namespace Library.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<long>("BindingId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Body")
+                    b.Property<int>("BindingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CategoryiD")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("FormatId")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ISBN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("LanguageId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("LetterId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("PageCount")
+                    b.Property<int>("NumberOfPages")
                         .HasColumnType("int");
 
-                    b.Property<long>("PublisherId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("PublisherId")
+                        .HasColumnType("int");
 
-                    b.Property<long>("QuantityCount")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
-                    b.Property<long>("RentedCount")
-                        .HasColumnType("bigint");
+                    b.Property<int>("ScriptId")
+                        .HasColumnType("int");
 
-                    b.Property<long>("ReservedCount")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Storyline")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("YearOfPublication")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("BindingId");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("FormatId");
 
+                    b.HasIndex("GenreId");
+
+                    b.HasIndex("PublisherId");
+
+                    b.HasIndex("ScriptId");
+
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Library.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Library.Models.Format", b =>
@@ -137,6 +211,82 @@ namespace Library.Migrations
                     b.ToTable("Formats");
                 });
 
+            modelBuilder.Entity("Library.Models.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genre");
+                });
+
+            modelBuilder.Entity("Library.Models.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publisher");
+                });
+
+            modelBuilder.Entity("Library.Models.Script", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Script");
+                });
+
+            modelBuilder.Entity("Library.Models.SignUpUserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SignUpUserModel");
+                });
+
             modelBuilder.Entity("Library.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -145,22 +295,21 @@ namespace Library.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("Last_login_at")
+                    b.Property<string>("JMBG")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Last_login_at")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("LockoutEnabled")
@@ -170,7 +319,6 @@ namespace Library.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -200,14 +348,8 @@ namespace Library.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<long?>("User_gender_id")
+                    b.Property<long?>("User_type_id")
                         .HasColumnType("bigint");
-
-                    b.Property<long>("User_type_id")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("user_gender_id")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -220,8 +362,6 @@ namespace Library.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.HasIndex("User_type_id");
-
-                    b.HasIndex("user_gender_id");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -410,28 +550,68 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.Book", b =>
                 {
-                    b.HasOne("Library.Models.Format", null)
+                    b.HasOne("Library.Models.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.Binding", "Binding")
+                        .WithMany("Books")
+                        .HasForeignKey("BindingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.Format", "Format")
                         .WithMany("Books")
                         .HasForeignKey("FormatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Library.Models.Genre", "Genre")
+                        .WithMany("Books")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.Publisher", "Publisher")
+                        .WithMany("Books")
+                        .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.Models.Script", "Script")
+                        .WithMany("Books")
+                        .HasForeignKey("ScriptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Binding");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Format");
+
+                    b.Navigation("Genre");
+
+                    b.Navigation("Publisher");
+
+                    b.Navigation("Script");
                 });
 
             modelBuilder.Entity("Library.Models.User", b =>
                 {
                     b.HasOne("Library.Models.UserType", "UserType")
                         .WithMany("Users")
-                        .HasForeignKey("User_type_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Library.Models.UserGender", "UserGender")
-                        .WithMany("Users")
-                        .HasForeignKey("user_gender_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserGender");
+                        .HasForeignKey("User_type_id");
 
                     b.Navigation("UserType");
                 });
@@ -487,14 +667,39 @@ namespace Library.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Library.Models.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Library.Models.Binding", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Library.Models.Category", b =>
+                {
+                    b.Navigation("Books");
+                });
+
             modelBuilder.Entity("Library.Models.Format", b =>
                 {
                     b.Navigation("Books");
                 });
 
-            modelBuilder.Entity("Library.Models.UserGender", b =>
+            modelBuilder.Entity("Library.Models.Genre", b =>
                 {
-                    b.Navigation("Users");
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Library.Models.Publisher", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Library.Models.Script", b =>
+                {
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("Library.Models.UserType", b =>

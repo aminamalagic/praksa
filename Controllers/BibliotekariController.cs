@@ -244,6 +244,17 @@ namespace Library.Controllers
             return View(viewModel);
         }
 
+        public async Task<IActionResult> Search(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return RedirectToAction("Index");
+            }
+            //var result = _context.Bibliotekari
+            //    .Include(b=>b.UserType).Where(b => b.Name.Contains(searchTerm) || b.Username.Contains(searchTerm) || b.Email.Contains(searchTerm)).ToList();
+
+            return View("Index", await _context.Bibliotekari.Include(b => b.UserType).Where(b => b.Name.Contains(searchTerm) || b.Username.Contains(searchTerm) || b.Email.Contains(searchTerm)).ToListAsync());
+        }
 
     }
 }

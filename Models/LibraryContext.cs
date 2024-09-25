@@ -9,7 +9,7 @@ namespace Library.Models
     {
 
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options) { }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<UserGender> UsersGenders { get; set; }
         public DbSet<UserType> UsersTypes { get; set; }
